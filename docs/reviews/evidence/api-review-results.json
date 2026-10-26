@@ -1,0 +1,62 @@
+{
+  "release_wrong_student_and_unapproved": {
+    "local_status": "pending",
+    "local_student": "Alice",
+    "has_google_user_id": false,
+    "selected_google_submission": "BOB_SUBMISSION",
+    "patched_grade_for": "BOB_SUBMISSION",
+    "profile_lookup_count": 0,
+    "returned_submission_count": 1
+  },
+  "batch_scope_widening": {
+    "requested_assignment": 1,
+    "processed_submission_ids": [
+      200
+    ],
+    "returned_total": 1
+  },
+  "identity_mutates_all_history": {
+    "unrelated_submission_id": 2,
+    "unrelated_submission_student_name": "Mallory OCR",
+    "roster_student_name": "Mallory OCR",
+    "roster_class": "Wrong Class"
+  },
+  "identity_ignores_class_scope": {
+    "requested_class": "Class B",
+    "expected_student_id": 3,
+    "matched_student_id": 2,
+    "matched_class": "Class A"
+  },
+  "teacher_save_loses_grounding": {
+    "before": {
+      "page_number": 3,
+      "bbox_2d": [
+        10,
+        20,
+        30,
+        40
+      ]
+    },
+    "after": {
+      "page_number": 1,
+      "bbox_2d": []
+    }
+  },
+  "student_result_changes_shared_assignment_max": {
+    "assignment_max_after_partial_second_script": 5.0,
+    "first_submission_score": 80.0,
+    "first_submission_report_max": 5.0,
+    "first_submission_stored_percent": 80.0
+  },
+  "stored_html_injection": {
+    "status": 200,
+    "contains_executable_script_from_student_name": true
+  },
+  "delete_keeps_public_script_file": {
+    "before_status": 200,
+    "delete_status": 200,
+    "after_status": 200,
+    "file_exists": true,
+    "same_content": true
+  }
+}

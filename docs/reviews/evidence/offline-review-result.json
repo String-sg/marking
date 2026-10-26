@@ -1,0 +1,67 @@
+{
+  "blockedExternalRequests": [
+    "https://cdn.tailwindcss.com/",
+    "https://cdn.jsdelivr.net/npm/chart.js",
+    "https://unpkg.com/lucide@latest"
+  ],
+  "pageErrors": [
+    "tailwind is not defined",
+    "lucide is not defined"
+  ],
+  "consoleErrors": [
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "Failed to load resource: net::ERR_INTERNET_DISCONNECTED",
+    "Error loading assignments ReferenceError: lucide is not defined\n    at loadAssignments (http://127.0.0.1:8250/static/js/app.js?v=5.0:353:13)",
+    "Error loading dashboard data ReferenceError: Chart is not defined\n    at renderClassTrendChart (http://127.0.0.1:8250/static/js/app.js?v=5.0:288:5)\n    at loadDashboardData (http://127.0.0.1:8250/static/js/app.js?v=5.0:181:9)"
+  ],
+  "baseline": {
+    "externalLibraries": {
+      "tailwind": "undefined",
+      "lucide": "undefined",
+      "Chart": "undefined"
+    },
+    "panels": [
+      {
+        "id": "view-dashboard",
+        "hiddenClass": false,
+        "display": "block",
+        "visible": true
+      },
+      {
+        "id": "view-assignments",
+        "hiddenClass": true,
+        "display": "block",
+        "visible": true
+      },
+      {
+        "id": "view-processing",
+        "hiddenClass": true,
+        "display": "block",
+        "visible": true
+      },
+      {
+        "id": "view-review",
+        "hiddenClass": true,
+        "display": "block",
+        "visible": true
+      },
+      {
+        "id": "view-students",
+        "hiddenClass": true,
+        "display": "block",
+        "visible": true
+      }
+    ],
+    "createAssignmentModal": {
+      "hiddenClass": true,
+      "display": "block",
+      "visible": true
+    }
+  },
+  "navigation": {
+    "error": "lucide is not defined",
+    "dashboardDisplay": "block",
+    "assignmentsDisplay": "block"
+  }
+}

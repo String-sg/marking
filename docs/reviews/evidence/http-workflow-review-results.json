@@ -1,0 +1,107 @@
+{
+  "probe_type": "synthetic HTTP integration with real local persistence and reports",
+  "startup_bypass": "builtins.Optional = typing.Optional; no source change",
+  "limitations": [
+    "FastAPI TestClient uses in-process HTTP, not a running server or real browser.",
+    "OCR, scoring/feedback stage functions and annotation generation are deterministic mocks.",
+    "Does not validate real Ollama quality, visual grounding accuracy, Google OAuth, or classroom release.",
+    "Temporary data is deleted after the run; no private data or external calls."
+  ],
+  "checkpoints": [
+    {
+      "name": "upload_and_render",
+      "page_count": 2,
+      "image_http_status": 200,
+      "source_and_pages_isolated": true
+    },
+    {
+      "name": "full_pipeline",
+      "response": {
+        "success": true,
+        "submission_id": 1,
+        "student_name": "Synthetic Learner",
+        "steps_skipped": [],
+        "steps_executed": [
+          "step1",
+          "step2",
+          "step3"
+        ],
+        "all_already_done": false,
+        "step1_done": true,
+        "step2_done": true,
+        "step3_done": true,
+        "total_score": 3.0,
+        "percentage": 75.0,
+        "grade_letter": "B",
+        "annotations_count": 2,
+        "message": "Pipeline finished: executed ['step1', 'step2', 'step3'], skipped [].",
+        "fallback_triggered": false,
+        "fallbacks": []
+      },
+      "status": "review_ready",
+      "question_pages": [
+        1,
+        2
+      ],
+      "has_question_bboxes": [
+        true,
+        true
+      ]
+    },
+    {
+      "name": "idempotent_pipeline_retry",
+      "steps_skipped": [
+        "step1",
+        "step2",
+        "step3"
+      ],
+      "model_stage_call_counts": {
+        "extract": 1,
+        "mark": 1,
+        "annotate": 1
+      }
+    },
+    {
+      "name": "teacher_approve",
+      "status": "approved",
+      "total_score": 3.0,
+      "percentage": 75.0,
+      "completed_assignments": 1,
+      "cohort_approved_count": 1,
+      "question_pages_after_review": [
+        1,
+        1
+      ],
+      "has_question_bboxes_after_review": [
+        false,
+        false
+      ]
+    },
+    {
+      "name": "publication",
+      "pdf_http_status": 200,
+      "html_http_status": 200,
+      "pdf_pages": 1,
+      "pdf_bytes": 3637,
+      "pdf_and_html_include_teacher_feedback": true
+    },
+    {
+      "name": "approved_pdf_button_auto_save",
+      "before_status": "approved",
+      "after_status": "review_ready",
+      "approved_at_retained": true,
+      "completed_assignments_before": 1,
+      "completed_assignments_after": 0,
+      "cohort_approved_count_before": 1,
+      "cohort_approved_count_after": 0,
+      "pdf_still_http_200": true
+    }
+  ],
+  "approved_pdf_button_regression_reproduced": true,
+  "model_stage_call_counts": {
+    "extract": 1,
+    "mark": 1,
+    "annotate": 1
+  },
+  "all_probe_assertions_passed": true
+}

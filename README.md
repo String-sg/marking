@@ -1,5 +1,11 @@
 # Tallus v0.1: Assessment & Analytics
 
+> **Review status (2026-10-26):** The current revision has confirmed startup,
+> assessment integrity, review-state, offline UI, and Classroom release defects.
+> See the [end-to-end review](docs/reviews/2026-10-26-e2e.md) before using those
+> paths with student data. The feature descriptions below describe the intended
+> product; they are not a claim that every path is verified.
+
 A 100% offline, privacy-first local workflow for AI-assisted marking, personalized feedback drafting, teacher review & approval, printable report generation, and student performance tracking.
 
 ---
@@ -326,3 +332,32 @@ Tallus/
 ├── tunnel_launcher.py                  # Cloudflare quick tunnel & ASCII QR code generator
 └── update_ui.py                        # UI styling sync script
 ```
+
+## Spec-driven development
+
+This repository includes [GitHub Spec Kit](https://github.com/github/spec-kit),
+initialised using Specify CLI `1.2.3.dev0` with Codex skills integration.
+
+- Read the [project constitution](.specify/memory/constitution.md) and
+  [working instructions](AGENTS.md).
+- The [workflow baseline](specs/001-marking-workflow/spec.md) records teacher
+  journeys and testable acceptance requirements.
+- The [implementation plan](specs/001-marking-workflow/plan.md) and
+  [tasks](specs/001-marking-workflow/tasks.md) map the review to scoped remediation.
+  Application fixes remain outstanding.
+
+In a fresh checkout, select the baseline before running the shared scripts:
+
+```bash
+export SPECIFY_FEATURE_DIRECTORY=specs/001-marking-workflow
+.specify/scripts/bash/check-prerequisites.sh --json
+```
+
+Codex can use the installed `speckit-constitution`, `speckit-specify`,
+`speckit-plan`, `speckit-tasks`, `speckit-analyze`, `speckit-implement`, and
+`speckit-converge` skills in `.agents/skills/`. Start new work from a spec or a
+focused bug reproduction, then validate the affected complete journey.
+
+Use a disposable environment and synthetic data for validation. Existing tests
+can write to the configured database and Google credential paths; isolate them
+before running the suite against an established installation.

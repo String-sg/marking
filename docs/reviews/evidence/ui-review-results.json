@@ -1,0 +1,21 @@
+{
+  "titleBeforeSave": "Title with ",
+  "stateAfterEmpty": {
+    "submissionId": 51,
+    "questionCards": 0,
+    "approveDisabled": false,
+    "assignmentSelection": "2",
+    "feedback": "Original feedback"
+  },
+  "mutation": {
+    "url": "/api/grading/51/approve",
+    "method": "POST",
+    "body": {
+      "overall_feedback": "Original feedback",
+      "strengths_feedback": "",
+      "improvement_feedback": "",
+      "questions": []
+    }
+  },
+  "ocrMarkupExecuted": 1
+}
